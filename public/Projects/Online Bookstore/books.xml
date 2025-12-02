@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore name="Pondicherry University Book Store">
+  <department name="MANAGEMENT">
+    <book>
+      <title>Principles of Management</title>
+      <author>Harold Koontz</author>
+      <publisher>McGraw-Hill</publisher>
+      <price currency="INR">850</price>
+    </book>
+    <book>
+      <title>Human Resource Management</title>
+      <author>Gary Dessler</author>
+      <publisher>Pearson</publisher>
+      <price currency="INR">920</price>
+    </book>
+  </department>
+  <department name="MATHEMATICAL SCIENCES">
+    <book>
+      <title>Calculus: Early Transcendentals</title>
+      <author>James Stewart</author>
+      <publisher>Cengage Learning</publisher>
+      <price currency="INR">950</price>
+    </book>
+    <book>
+      <title>Linear Algebra and Its Applications</title>
+      <author>Gilbert Strang</author>
+      <publisher>Brooks Cole</publisher>
+      <price currency="INR">820</price>
+    </book>
+  </department>
+  <department name="ENGINEERING &amp; TECHNOLOGY">
+    <book>
+      <title>Python Programming</title>
+      <author>Mark Lutz</author>
+      <publisher>O'Reilly Media</publisher>
+      <price currency="INR">950</price>
+    </book>
+    <book>
+      <title>Java: The Complete Reference</title>
+      <author>Herbert Schildt</author>
+      <publisher>McGraw-Hill</publisher>
+      <price currency="INR">880</price>
+    </book>
+  </department>
+</bookstore>

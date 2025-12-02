@@ -1,0 +1,113 @@
+import { motion } from 'framer-motion';
+import SectionWrapper from '../components/SectionWrapper';
+import ParticlesBackground from '../components/ParticlesBackground';
+import ThreeScene from '../components/ThreeScene';
+import AnimatedButton from '../components/AnimatedButton';
+
+// For demo, using placeholder icons
+const techIcons = [
+  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+];
+
+const AboutPage = () => {
+  return (
+    <SectionWrapper>
+      <ParticlesBackground className="opacity-30" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center gap-10 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="md:w-1/2 flex flex-col items-center md:items-start"
+        >
+          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+            <span className="violet-gradient">About Me</span>
+          </h1>
+          
+          <div className="space-y-4 text-text-secondary">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              Motivated and detail-oriented Computer Science student with strong fundamentals in programming, web development, and problem-solving. Experienced in academic projects, internships, and technical tools commonly used in development workflows. Skilled in applying analytical thinking, debugging techniques, and structured approaches to complete tasks efficiently.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="pt-2 space-y-3"
+            >
+              <div>
+                <h3 className="text-lg font-semibold text-text-primary mb-1">Hands-on experience with:</h3>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-text-primary mb-1">Web Technologies:</h4>
+                <p>HTML, CSS, JavaScript, Bootstrap, React (Basics), Node.js (Learning)</p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-text-primary mb-1">Databases:</h4>
+                <p>MySQL, Firebase (Basics)</p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-text-primary mb-1">Design &amp; Editing Tools:</h4>
+                <p>Adobe Photoshop, Adobe XD, Canva, CapCut, DaVinci Resolve, Filmora</p>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-text-primary mb-1">Other Skills:</h4>
+                <p>UI/UX Principles, Responsive Design, MS Word, Excel, PowerPoint</p>
+              </div>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="pt-4"
+            >
+              Capable of adapting quickly to new environments, learning emerging technologies, and contributing effectively in both individual and team-based settings. Seeking opportunities to develop technical skills further and grow within a forward-thinking organization.
+            </motion.p>
+          </div>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="md:w-1/2 flex flex-col items-center"
+        >
+          <div className="w-full max-w-sm animated-border-box p-6 rounded-xl">
+            <div className="rounded-xl overflow-hidden mb-6">
+              <motion.img
+                src="/Assets/Profile.jpg"
+                alt="Vishnu J"
+                className="w-full h-auto rounded-xl max-h-80 object-cover"
+                initial={{ scale: 1.1, filter: 'blur(8px)' }}
+                animate={{ scale: 1, filter: 'blur(0px)' }}
+                transition={{ duration: 0.8 }}
+              />
+            </div>
+            
+            <h3 className="text-xl font-semibold text-text-primary mb-4 text-center">
+              Tech I Work With
+            </h3>
+            
+            <div className="w-full h-[300px]">
+              <ThreeScene icons={techIcons} />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </SectionWrapper>
+  );
+};
+
+export default AboutPage;

@@ -1,0 +1,56 @@
+{
+  "bookstore": "Pondicherry University Book Store",
+  "departments": [
+    {
+      "name": "MANAGEMENT",
+      "books": [
+        {
+          "title": "Principles of Management",
+          "author": "Harold Koontz",
+          "publisher": "McGraw-Hill",
+          "price": 850
+        },
+        {
+          "title": "Human Resource Management",
+          "author": "Gary Dessler",
+          "publisher": "Pearson",
+          "price": 920
+        }
+      ]
+    },
+    {
+      "name": "MATHEMATICAL SCIENCES",
+      "books": [
+        {
+          "title": "Calculus: Early Transcendentals",
+          "author": "James Stewart",
+          "publisher": "Cengage Learning",
+          "price": 950
+        },
+        {
+          "title": "Linear Algebra and Its Applications",
+          "author": "Gilbert Strang",
+          "publisher": "Brooks Cole",
+          "price": 820
+        }
+      ]
+    },
+    {
+      "name": "ENGINEERING & TECHNOLOGY",
+      "books": [
+        {
+          "title": "Python Programming",
+          "author": "Mark Lutz",
+          "publisher": "O'Reilly Media",
+          "price": 950
+        },
+        {
+          "title": "Java: The Complete Reference",
+          "author": "Herbert Schildt",
+          "publisher": "McGraw-Hill",
+          "price": 880
+        }
+      ]
+    }
+  ]
+}

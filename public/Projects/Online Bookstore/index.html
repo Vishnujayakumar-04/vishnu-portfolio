@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PONDICHERRY UNIVERSITY BOOK STORE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="logo"><img src="PULOGO.png" alt="PU" /></div>
+      <div class="site-title">PU Book Store</div>
+    </div>
+    <nav class="main-nav" id="top-nav">
+      <a href="#home" data-nav="home" class="active">Home</a>
+      <a href="#catalogue" data-nav="catalogue">Catalogue</a>
+      <a href="#cart" data-nav="cart">Cart <span class="badge" id="nav-cart-count">0</span></a>
+      <a href="#track" data-nav="track">Track Order</a>
+      <div id="auth-nav">
+        <a href="#login" data-nav="login" id="nav-login">Login / Register</a>
+      </div>
+      <div id="user-menu" style="display:none" class="user-menu-container">
+        <div class="user-icon" id="user-icon">
+          <span id="user-initial">U</span>
+        </div>
+        <div class="user-dropdown" id="user-dropdown">
+          <div class="user-info">
+            <strong id="user-name-display">User</strong>
+            <span class="muted" id="user-email-display">user@pu.edu.in</span>
+          </div>
+          <div class="dropdown-divider"></div>
+          <a href="#" id="logout-btn" class="dropdown-item">
+            <span>🚪</span> Logout
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sidebar -->
+  <aside>
+    <div class="panel-title">SEARCH</div>
+    <div class="search">
+      <input id="searchInput" type="text" placeholder="Search book title or author..." />
+      <button class="btn ghost" id="searchBtn">Go</button>
+    </div>
+
+    <div class="panel-title">CATEGORIES</div>
+    <ul class="category-list" id="catList">
+      <li><a href="#catalogue" data-filter="all" class="category-active">All Departments</a></li>
+      <li><a href="#catalogue" data-filter="MANAGEMENT">Management</a></li>
+      <li><a href="#catalogue" data-filter="MATHEMATICAL SCIENCES">Mathematical Sciences</a></li>
+      <li><a href="#catalogue" data-filter="ENGINEERING & TECHNOLOGY">Engineering & Technology</a></li>
+      <li><a href="#catalogue" data-filter="PHYSICAL, CHEMICAL & APPLIED SCIENCES">Physical, Chemical & Applied Sciences</a></li>
+      <li><a href="#catalogue" data-filter="LIFE SCIENCES">Life Sciences</a></li>
+      <li><a href="#catalogue" data-filter="HUMANITIES">Humanities</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main>
+    <!-- HOME -->
+    <section class="section active" id="home">
+      <div class="hero">
+        <div>
+          <h2>Welcome to PU Book Store</h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGIN / REGISTER (combined) -->
+    <section class="section" id="login">
+      <h2>Login / Registration</h2>
+      <div class="form-card">
+        <!-- Tabs -->
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tab-login" data-tab="login">Login</button>
+          <button class="auth-tab" id="tab-register" data-tab="register">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="auth-form active">
+          <div id="loginError" class="error"></div>
+          <div id="loginSuccess" class="success-box"></div>
+          <div class="form-row">
+            <label for="login-username">Username or Email</label>
+            <input type="text" id="login-username" placeholder="e.g. johndoe or john@pu.edu.in" />
+          </div>
+          <div class="form-row">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Your password" />
+          </div>
+          <div class="form-actions">
+            <button class="btn ghost" id="loginReset">Reset</button>
+            <button class="btn" id="loginSubmit">Login</button>
+          </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="register-form" class="auth-form">
+          <div id="regError" class="error"></div>
+          <div id="regSuccess" class="success-box"></div>
+          <div class="form-row">
+            <label for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" placeholder="Your full name" />
+          </div>
+          <div class="form-row">
+            <label for="reg-email">Email</label>
+            <input type="text" id="reg-email" placeholder="you@pu.edu.in" />
+          </div>
+          <div class="form-row">
+            <label for="reg-username">Username</label>
+            <input type="text" id="reg-username" placeholder="Choose a username" />
+          </div>
+          <div class="form-row">
+            <label for="reg-password">Password</label>
+            <input type="password" id="reg-password" placeholder="At least 6 characters" />
+          </div>
+          <div class="form-row">
+            <label for="reg-confirm">Confirm Password</label>
+            <input type="password" id="reg-confirm" placeholder="Retype password" />
+          </div>
+          <div class="form-row">
+            <label for="reg-phone">Phone Number</label>
+            <input type="tel" id="reg-phone" placeholder="e.g. 9876543210" />
+          </div>
+          <div class="form-row">
+            <label for="reg-sex">Sex</label>
+            <select id="reg-sex">
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="reg-dob">Date of Birth</label>
+            <input type="date" id="reg-dob" />
+          </div>
+          <div class="form-actions">
+            <button class="btn ghost" id="regReset">Reset</button>
+            <button class="btn" id="regSubmit">Register</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATALOGUE -->
+    <section class="section" id="catalogue">
+      <h2>Complete Book Catalogue</h2>
+
+      <div class="toolbar">
+        <div>
+          <label for="dept-filter"><strong>Filter:</strong></label>
+          <select id="dept-filter">
+            <option value="all">All Departments</option>
+            <option value="MANAGEMENT">Management</option>
+            <option value="MATHEMATICAL SCIENCES">Mathematical Sciences</option>
+            <option value="ENGINEERING & TECHNOLOGY">Engineering & Technology</option>
+            <option value="PHYSICAL, CHEMICAL & APPLIED SCIENCES">Physical, Chemical & Applied Sciences</option>
+            <option value="LIFE SCIENCES">Life Sciences</option>
+            <option value="HUMANITIES">Humanities</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Management -->
+      <div class="department-section" data-department="MANAGEMENT">
+        <h3>MANAGEMENT Books</h3>
+        <table>
+          <tr>
+            <th>Cover</th><th>Book Name</th><th>Author</th><th>Publisher</th><th>Price</th><th>Add to Cart</th>
+          </tr>
+          <tr>
+            <td><img src="MANAGEMENT Book/9789356224049L.jpg" alt="Principles of Management" class="book-cover"></td>
+            <td>Principles of Management</td><td>Harold Koontz</td><td>McGraw-Hill</td><td>₹850</td>
+            <td><button class="btn add-to-cart" data-book="Principles of Management" data-author="Harold Koontz" data-price="850" data-dept="MANAGEMENT">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="MANAGEMENT Book/images (1).jpeg" alt="Human Resource Management" class="book-cover"></td>
+            <td>Human Resource Management</td><td>Gary Dessler</td><td>Pearson</td><td>₹920</td>
+            <td><button class="btn add-to-cart" data-book="Human Resource Management" data-author="Gary Dessler" data-price="920" data-dept="MANAGEMENT">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="MANAGEMENT Book/images (2).jpeg" alt="Marketing Management" class="book-cover"></td>
+            <td>Marketing Management</td><td>Philip Kotler</td><td>Prentice Hall</td><td>₹780</td>
+            <td><button class="btn add-to-cart" data-book="Marketing Management" data-author="Philip Kotler" data-price="780" data-dept="MANAGEMENT">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="MANAGEMENT Book/images (3).jpeg" alt="Financial Management" class="book-cover"></td>
+            <td>Financial Management</td><td>I.M. Pandey</td><td>Vikas Publishing</td><td>₹650</td>
+            <td><button class="btn add-to-cart" data-book="Financial Management" data-author="I.M. Pandey" data-price="650" data-dept="MANAGEMENT">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="MANAGEMENT Book/images.jpeg" alt="Operations Management" class="book-cover"></td>
+            <td>Operations Management</td><td>Jay Heizer</td><td>Pearson</td><td>₹890</td>
+            <td><button class="btn add-to-cart" data-book="Operations Management" data-author="Jay Heizer" data-price="890" data-dept="MANAGEMENT">Add to Cart</button></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Mathematical Sciences -->
+      <div class="department-section" data-department="MATHEMATICAL SCIENCES">
+        <h3>MATHEMATICAL SCIENCES Books</h3>
+        <table>
+          <tr>
+            <th>Cover</th><th>Book Name</th><th>Author</th><th>Publisher</th><th>Price</th><th>Add to Cart</th>
+          </tr>
+          <tr>
+            <td><img src="MATHEMATICAL SCIENCES Book/UGS_CSIR_NETSET_MATHEMATICAL_SCIECES1715918975774.jpg" class="book-cover" alt=""></td>
+            <td>Calculus: Early Transcendentals</td><td>James Stewart</td><td>Cengage Learning</td><td>₹950</td>
+            <td><button class="btn add-to-cart" data-book="Calculus: Early Transcendentals" data-author="James Stewart" data-price="950" data-dept="MATHEMATICAL SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="MATHEMATICAL SCIENCES Book/ifas-csir-net-mathematical-science-mathematics-theory-books-7-books-complete-study-materials-exam-books-for-csir-net-gate-set-nbhm-product-images-orvm9vhwasl-p60791.webp" class="book-cover" alt=""></td>
+            <td>Linear Algebra and Its Applications</td><td>Gilbert Strang</td><td>Brooks Cole</td><td>₹820</td>
+            <td><button class="btn add-to-cart" data-book="Linear Algebra and Its Applications" data-author="Gilbert Strang" data-price="820" data-dept="MATHEMATICAL SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="MATHEMATICAL SCIENCES Book/images (1).jpeg" class="book-cover" alt=""></td>
+            <td>Probability and Statistics</td><td>Morris H. DeGroot</td><td>Pearson</td><td>₹780</td>
+            <td><button class="btn add-to-cart" data-book="Probability and Statistics" data-author="Morris H. DeGroot" data-price="780" data-dept="MATHEMATICAL SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="MATHEMATICAL SCIENCES Book/images (2).jpeg" class="book-cover" alt=""></td>
+            <td>Differential Equations</td><td>Dennis G. Zill</td><td>Jones & Bartlett</td><td>₹720</td>
+            <td><button class="btn add-to-cart" data-book="Differential Equations" data-author="Dennis G. Zill" data-price="720" data-dept="MATHEMATICAL SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="MATHEMATICAL SCIENCES Book/images (3).jpeg" class="book-cover" alt=""></td>
+            <td>Numerical Analysis</td><td>Richard L. Burden</td><td>Cengage Learning</td><td>₹890</td>
+            <td><button class="btn add-to-cart" data-book="Numerical Analysis" data-author="Richard L. Burden" data-price="890" data-dept="MATHEMATICAL SCIENCES">Add to Cart</button></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Engineering & Tech -->
+      <div class="department-section" data-department="ENGINEERING & TECHNOLOGY">
+        <h3>ENGINEERING & TECHNOLOGY Books</h3>
+        <table>
+          <tr>
+            <th>Cover</th><th>Book Name</th><th>Author</th><th>Publisher</th><th>Price</th><th>Add to Cart</th>
+          </tr>
+          <tr>
+            <td><img src="ENGINEERING & TECHNOLOGY/Python Book.jpg" class="book-cover" alt=""></td>
+            <td>Python Programming</td><td>Mark Lutz</td><td>O'Reilly Media</td><td>₹950</td>
+            <td><button class="btn add-to-cart" data-book="Python Programming" data-author="Mark Lutz" data-price="950" data-dept="ENGINEERING & TECHNOLOGY">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="ENGINEERING & TECHNOLOGY/Java Book.jpg" class="book-cover" alt=""></td>
+            <td>Java: The Complete Reference</td><td>Herbert Schildt</td><td>McGraw-Hill</td><td>₹880</td>
+            <td><button class="btn add-to-cart" data-book="Java: The Complete Reference" data-author="Herbert Schildt" data-price="880" data-dept="ENGINEERING & TECHNOLOGY">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="ENGINEERING & TECHNOLOGY/C++ Book.jpeg" class="book-cover" alt=""></td>
+            <td>C++ Programming Language</td><td>Bjarne Stroustrup</td><td>Addison-Wesley</td><td>₹920</td>
+            <td><button class="btn add-to-cart" data-book="C++ Programming Language" data-author="Bjarne Stroustrup" data-price="920" data-dept="ENGINEERING & TECHNOLOGY">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="ENGINEERING & TECHNOLOGY/Data Structure Book.jpg" class="book-cover" alt=""></td>
+            <td>Data Structures and Algorithms</td><td>Robert Sedgewick</td><td>Addison-Wesley</td><td>₹850</td>
+            <td><button class="btn add-to-cart" data-book="Data Structures and Algorithms" data-author="Robert Sedgewick" data-price="850" data-dept="ENGINEERING & TECHNOLOGY">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="ENGINEERING & TECHNOLOGY/Computer networks.jpg" class="book-cover" alt=""></td>
+            <td>Computer Networks</td><td>Andrew S. Tanenbaum</td><td>Prentice Hall</td><td>₹780</td>
+            <td><button class="btn add-to-cart" data-book="Computer Networks" data-author="Andrew S. Tanenbaum" data-price="780" data-dept="ENGINEERING & TECHNOLOGY">Add to Cart</button></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- PCAS -->
+      <div class="department-section" data-department="PHYSICAL, CHEMICAL & APPLIED SCIENCES">
+        <h3>PHYSICAL, CHEMICAL & APPLIED SCIENCES Books</h3>
+        <table>
+          <tr>
+            <th>Cover</th><th>Book Name</th><th>Author</th><th>Publisher</th><th>Price</th><th>Add to Cart</th>
+          </tr>
+          <tr>
+            <td><img src="PHYSICAL, CHEMICAL & APPLIED SCIENCES Book/81Pv+dEzF4L.jpg" class="book-cover" alt=""></td>
+            <td>Physics for Scientists and Engineers</td><td>Raymond A. Serway</td><td>Brooks Cole</td><td>₹950</td>
+            <td><button class="btn add-to-cart" data-book="Physics for Scientists and Engineers" data-author="Raymond A. Serway" data-price="950" data-dept="PHYSICAL, CHEMICAL & APPLIED SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="PHYSICAL, CHEMICAL & APPLIED SCIENCES Book/Engg Chem C and D.jpeg" class="book-cover" alt=""></td>
+            <td>Chemistry: The Central Science</td><td>Theodore L. Brown</td><td>Prentice Hall</td><td>₹880</td>
+            <td><button class="btn add-to-cart" data-book="Chemistry: The Central Science" data-author="Theodore L. Brown" data-price="880" data-dept="PHYSICAL, CHEMICAL & APPLIED SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="PHYSICAL, CHEMICAL & APPLIED SCIENCES Book/71F231-YUML._UF1000,1000_QL80_.jpg" class="book-cover" alt=""></td>
+            <td>Quantum Mechanics</td><td>David J. Griffiths</td><td>Pearson</td><td>₹920</td>
+            <td><button class="btn add-to-cart" data-book="Quantum Mechanics" data-author="David J. Griffiths" data-price="920" data-dept="PHYSICAL, CHEMICAL & APPLIED SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="PHYSICAL, CHEMICAL & APPLIED SCIENCES Book/front_img_cover.jpg" class="book-cover" alt=""></td>
+            <td>Thermodynamics</td><td>Yunus A. Çengel</td><td>McGraw-Hill</td><td>₹850</td>
+            <td><button class="btn add-to-cart" data-book="Thermodynamics" data-author="Yunus A. Çengel" data-price="850" data-dept="PHYSICAL, CHEMICAL & APPLIED SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="PHYSICAL, CHEMICAL & APPLIED SCIENCES Book/9780429098758.jpg" class="book-cover" alt=""></td>
+            <td>Organic Chemistry</td><td>John McMurry</td><td>Brooks Cole</td><td>₹780</td>
+            <td><button class="btn add-to-cart" data-book="Organic Chemistry" data-author="John McMurry" data-price="780" data-dept="PHYSICAL, CHEMICAL & APPLIED SCIENCES">Add to Cart</button></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Life -->
+      <div class="department-section" data-department="LIFE SCIENCES">
+        <h3>LIFE SCIENCES Books</h3>
+        <table>
+          <tr>
+            <th>Cover</th><th>Book Name</th><th>Author</th><th>Publisher</th><th>Price</th><th>Add to Cart</th>
+          </tr>
+          <tr>
+            <td><img src="LIFE SCIENCES Book/9788189301040-1.jpg" class="book-cover" alt=""></td>
+            <td>Biology: Concepts and Connections</td><td>Neil A. Campbell</td><td>Benjamin Cummings</td><td>₹950</td>
+            <td><button class="btn add-to-cart" data-book="Biology: Concepts and Connections" data-author="Neil A. Campbell" data-price="950" data-dept="LIFE SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="LIFE SCIENCES Book/51uASWHjAZL._SX420_BO1204203200_.jpg" class="book-cover" alt=""></td>
+            <td>Microbiology: An Introduction</td><td>Gerard J. Tortora</td><td>Benjamin Cummings</td><td>₹880</td>
+            <td><button class="btn add-to-cart" data-book="Microbiology: An Introduction" data-author="Gerard J. Tortora" data-price="880" data-dept="LIFE SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="LIFE SCIENCES Book/LifeScience_EnvironmentXTBCoverfor2024Front.webp" class="book-cover" alt=""></td>
+            <td>Genetics: Analysis and Principles</td><td>Robert J. Brooker</td><td>McGraw-Hill</td><td>₹920</td>
+            <td><button class="btn add-to-cart" data-book="Genetics: Analysis and Principles" data-author="Robert J. Brooker" data-price="920" data-dept="LIFE SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="LIFE SCIENCES Book/images (1).jpeg" class="book-cover" alt=""></td>
+            <td>Biochemistry</td><td>Jeremy M. Berg</td><td>W.H. Freeman</td><td>₹850</td>
+            <td><button class="btn add-to-cart" data-book="Biochemistry" data-author="Jeremy M. Berg" data-price="850" data-dept="LIFE SCIENCES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="LIFE SCIENCES Book/images (2).jpeg" class="book-cover" alt=""></td>
+            <td>Ecology: Concepts and Applications</td><td>Manuel C. Molles</td><td>McGraw-Hill</td><td>₹780</td>
+            <td><button class="btn add-to-cart" data-book="Ecology: Concepts and Applications" data-author="Manuel C. Molles" data-price="780" data-dept="LIFE SCIENCES">Add to Cart</button></td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Humanities -->
+      <div class="department-section" data-department="HUMANITIES">
+        <h3>HUMANITIES Books</h3>
+        <table>
+          <tr>
+            <th>Cover</th><th>Book Name</th><th>Author</th><th>Publisher</th><th>Price</th><th>Add to Cart</th>
+          </tr>
+          <tr>
+            <td><img src="HUMANITIES Book/51C7fJ1DkLL._UF1000,1000_QL80_.jpg" class="book-cover" alt=""></td>
+            <td>Philosophy: The Classics</td><td>Nigel Warburton</td><td>Routledge</td><td>₹750</td>
+            <td><button class="btn add-to-cart" data-book="Philosophy: The Classics" data-author="Nigel Warburton" data-price="750" data-dept="HUMANITIES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="HUMANITIES Book/humanities.jpg" class="book-cover" alt=""></td>
+            <td>Literature: An Introduction</td><td>Robert DiYanni</td><td>McGraw-Hill</td><td>₹820</td>
+            <td><button class="btn add-to-cart" data-book="Literature: An Introduction" data-author="Robert DiYanni" data-price="820" data-dept="HUMANITIES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="HUMANITIES Book/images (1).jpeg" class="book-cover" alt=""></td>
+            <td>World History</td><td>William J. Duiker</td><td>Cengage Learning</td><td>₹880</td>
+            <td><button class="btn add-to-cart" data-book="World History" data-author="William J. Duiker" data-price="880" data-dept="HUMANITIES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="HUMANITIES Book/images (2).jpeg" class="book-cover" alt=""></td>
+            <td>Political Science</td><td>Michael G. Roskin</td><td>Pearson</td><td>₹720</td>
+            <td><button class="btn add-to-cart" data-book="Political Science" data-author="Michael G. Roskin" data-price="720" data-dept="HUMANITIES">Add to Cart</button></td>
+          </tr>
+          <tr>
+            <td><img src="HUMANITIES Book/images (3).jpeg" class="book-cover" alt=""></td>
+            <td>Sociology: A Brief Introduction</td><td>Richard T. Schaefer</td><td>McGraw-Hill</td><td>₹680</td>
+            <td><button class="btn add-to-cart" data-book="Sociology: A Brief Introduction" data-author="Richard T. Schaefer" data-price="680" data-dept="HUMANITIES">Add to Cart</button></td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- CART -->
+    <section class="section" id="cart">
+      <h2>Your Cart</h2>
+      <div id="cart-items"><p class="muted">Your cart is empty. Add some books from the catalogue!</p></div>
+      <div id="cart-summary">
+        <div class="line"><strong>Total Items:</strong> <span id="cart-count">0</span></div>
+        <div class="line"><strong>Total Price:</strong> ₹<span id="cart-total">0</span></div>
+        <div class="form-actions" style="justify-content:flex-start;margin-top:12px">
+          <button id="checkout-btn" class="btn success">Proceed to Checkout</button>
+          <button id="clear-cart-btn" class="btn danger">Clear Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAYMENT -->
+    <section class="section" id="payment">
+      <h2>Checkout — Payment</h2>
+      <div class="steps">
+        <span class="step">1. Cart</span>
+        <span class="step active">2. Payment & Address</span>
+        <span class="step">3. Order Confirmation</span>
+      </div>
+
+      <div class="pay-grid">
+        <div class="pay-card">
+          <h3>Delivery Address</h3>
+          <div class="form-row">
+            <label for="delivery-address">Full Address</label>
+            <textarea id="delivery-address" rows="4" placeholder="Enter your complete delivery address (Street, City, State, Pincode)"></textarea>
+          </div>
+          <div class="form-row">
+            <label for="delivery-phone">Contact Phone</label>
+            <input type="tel" id="delivery-phone" placeholder="Phone number for delivery" />
+          </div>
+          
+          <h3 style="margin-top:24px">Payment Method</h3>
+          <div class="form-row">
+            <select id="pay-method">
+              <option value="Cash on Delivery">Cash on Delivery</option>
+              <option value="Online UPI">Online UPI</option>
+              <option value="Credit Card">Credit Card</option>
+              <option value="Debit Card">Debit Card</option>
+            </select>
+          </div>
+          <div id="pay-details">
+            <!-- dynamic fields will render here -->
+          </div>
+        </div>
+
+        <div class="pay-card">
+          <h3>Order Summary</h3>
+          <div id="pay-summary" class="muted">Loading...</div>
+          <div class="form-actions" style="margin-top:14px;justify-content:space-between">
+            <button class="btn ghost" data-goto="cart">Back to Cart</button>
+            <button class="btn success" id="place-order">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER CONFIRMATION -->
+    <section class="section" id="order-confirmation">
+      <h2>Order Confirmed!</h2>
+      <div class="order-confirmation-box" id="order-confirmation-box">
+        <!-- order confirmation content injected -->
+      </div>
+      <div class="form-actions" style="margin-top:12px;justify-content:flex-start">
+        <button class="btn ghost" data-goto="home">Continue Shopping</button>
+        <button class="btn" data-goto="track">Track Order</button>
+      </div>
+    </section>
+
+    <!-- TRACK ORDER -->
+    <section class="section" id="track">
+      <h2>Track Your Order</h2>
+      <div class="form-card">
+        <div id="track-error" class="error"></div>
+        <div class="form-row">
+          <label for="track-order-id">Order ID</label>
+          <input type="text" id="track-order-id" placeholder="Enter your Order ID (e.g., ORD1234567890)" />
+        </div>
+        <div class="form-actions">
+          <button class="btn" id="track-order-btn">Track Order</button>
+        </div>
+        <div id="track-result" style="margin-top:20px">
+          <!-- Track result will be displayed here -->
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
