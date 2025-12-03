@@ -11,15 +11,15 @@ const ResumePage = () => {
     <SectionWrapper>
       <ParticlesBackground className="opacity-20" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-8">
-            <span className="violet-gradient">My Resume</span>
+          <h1 className="text-4xl sm:text-5xl font-display font-bold mb-8">
+            <span className="bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">My Resume</span>
           </h1>
           <p className="text-text-secondary text-center max-w-2xl mb-8">
             Here's a summary of my professional experience, education, and achievements.
@@ -43,7 +43,7 @@ const ResumePage = () => {
           >
             <div className="flex items-center gap-4 mb-8">
               <Briefcase size={28} className="text-text-accent" />
-              <h2 className="text-3xl font-bold">Work Experience</h2>
+              <h2 className="text-3xl font-display font-bold bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">Work Experience</h2>
             </div>
             
             <div className="space-y-8 relative">
@@ -100,7 +100,7 @@ const ResumePage = () => {
           >
             <div className="flex items-center gap-4 mb-8">
               <GraduationCap size={28} className="text-text-accent" />
-              <h2 className="text-3xl font-bold">Education</h2>
+              <h2 className="text-3xl font-display font-bold bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">Education</h2>
             </div>
             
             <div className="space-y-8 relative">
@@ -187,11 +187,11 @@ const ResumePage = () => {
                     <p className="text-text-secondary">{edu.description}</p>
                     {edu.degree === 'BCA - Computer Application' && edu.marksheets && (
                       <div className="mt-6">
-                        <h4 className="text-lg font-bold text-center mb-2 text-text-primary">Semester Mark Sheets</h4>
+                        <h4 className="text-lg font-display font-bold text-center mb-2 text-text-primary">Semester Mark Sheets</h4>
                         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 mx-auto w-full max-w-2xl justify-center items-center">
                           {edu.marksheets.map(sheet => <MarksheetItem key={sheet.title} {...sheet} />)}
                         </div>
-                        <h4 className="text-lg font-bold text-center mt-8 mb-2 text-text-primary">School Mark Sheets</h4>
+                        <h4 className="text-lg font-display font-bold text-center mt-8 mb-2 text-text-primary">School Mark Sheets</h4>
                         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 mx-auto w-full max-w-md justify-center items-center">
                           {edu.schoolMarks.map(sheet => <MarksheetItem key={sheet.title} {...sheet} />)}
                         </div>
@@ -204,7 +204,7 @@ const ResumePage = () => {
             
             <div className="flex items-center gap-4 mb-8">
               <Award size={28} className="text-text-accent" />
-              <h2 className="text-3xl font-bold">Certifications</h2>
+              <h2 className="text-3xl font-display font-bold bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">Certifications</h2>
             </div>
             
             <div className="space-y-4">

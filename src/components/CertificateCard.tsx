@@ -12,7 +12,7 @@ const CertificateCard: React.FC<CertificateCardProps> = ({ imgSrc, title, descri
       href={imgSrc}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative group flex flex-col items-center transition-transform duration-300 rounded-xl overflow-hidden shadow-lg bg-background-secondary hover:scale-105 hover:shadow-2xl border border-transparent hover:border-text-accent cursor-pointer aspect-[4/3]"
+      className="relative group flex flex-col items-center transition-all duration-300 rounded-xl overflow-hidden shadow-lg bg-background-secondary hover:scale-105 hover:shadow-2xl hover:shadow-[#FFA500]/30 border border-transparent hover:border-[#FFA500]/50 cursor-pointer aspect-[4/3]"
       style={{ minHeight: 180 }}
       aria-label={title}
     >

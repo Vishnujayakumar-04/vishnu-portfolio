@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,13 @@ const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  // EmailJS configuration - You'll need to replace these with your actual EmailJS credentials
+  // Get these from https://www.emailjs.com/
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
 
   const validateForm = () => {
     const newErrors = {
@@ -46,23 +54,51 @@ const ContactForm = () => {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError('');
     
-    if (validateForm()) {
-      setIsSubmitting(true);
+    if (!validateForm()) {
+      return;
+    }
+
+    // Check if EmailJS is configured
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setSubmitError('Email service is not configured. Please contact me directly at vishnujayakumar4104@gmail.com');
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    try {
+      // Initialize EmailJS with public key
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'vishnujayakumar4104@gmail.com', // Your email address
+        }
+      );
+
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', message: '' });
+      setSubmitError(''); // Clear any previous errors
       
-      // Simulate form submission
+      // Reset success message after 5 seconds
       setTimeout(() => {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', message: '' });
-        
-        // Reset success message after 5 seconds
-        setTimeout(() => {
-          setIsSubmitted(false);
-        }, 5000);
-      }, 1500);
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setIsSubmitting(false);
+      setSubmitError('Failed to send message. Please try again or contact me directly at vishnujayakumar4104@gmail.com');
     }
   };
 
@@ -109,7 +145,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className={`w-full px-4 py-3 rounded-lg bg-background-primary border ${
                 errors.name ? 'border-red-500' : 'border-text-secondary/20'
-              } focus:outline-none focus:border-text-accent transition-colors`}
+              } focus:outline-none focus:border-[#FFA500] focus:ring-2 focus:ring-[#FFA500]/20 transition-all duration-300`}
               placeholder=""
             />
             {errors.name && (
@@ -129,7 +165,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className={`w-full px-4 py-3 rounded-lg bg-background-primary border ${
                 errors.email ? 'border-red-500' : 'border-text-secondary/20'
-              } focus:outline-none focus:border-text-accent transition-colors`}
+              } focus:outline-none focus:border-[#FFA500] focus:ring-2 focus:ring-[#FFA500]/20 transition-all duration-300`}
               placeholder=""
             />
             {errors.email && (
@@ -149,7 +185,7 @@ const ContactForm = () => {
               rows={5}
               className={`w-full px-4 py-3 rounded-lg bg-background-primary border ${
                 errors.message ? 'border-red-500' : 'border-text-secondary/20'
-              } focus:outline-none focus:border-text-accent transition-colors`}
+              } focus:outline-none focus:border-[#FFA500] focus:ring-2 focus:ring-[#FFA500]/20 transition-all duration-300`}
               placeholder=""
             />
             {errors.message && (
@@ -157,17 +193,28 @@ const ContactForm = () => {
             )}
           </div>
           
+          {submitError && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-500"
+            >
+              <AlertCircle size={20} />
+              <p className="text-sm">{submitError}</p>
+            </motion.div>
+          )}
+          
           <button
             type="submit"
-            className={`w-full py-3 px-6 bg-text-accent text-white font-medium rounded-lg flex items-center justify-center gap-2 ${
-              isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+            className={`w-full py-3 px-6 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-white font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300 ${
+              isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90 hover:shadow-lg hover:shadow-[#FFA500]/50 hover:scale-105'
             }`}
             disabled={isSubmitting}
           >
             {isSubmitting ? (
               <>
                 <div
-                  className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                  className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
                 />
                 <span>Sending...</span>
               </>

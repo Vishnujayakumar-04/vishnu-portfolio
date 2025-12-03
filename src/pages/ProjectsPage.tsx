@@ -157,15 +157,15 @@ const ProjectsPage = () => {
     <SectionWrapper>
       <ParticlesBackground className="opacity-20" />
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-8">
-            <span className="violet-gradient">My Projects</span>
+          <h1 className="text-4xl sm:text-5xl font-display font-bold mb-8">
+            <span className="bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">My Projects</span>
           </h1>
           <p className="text-text-secondary text-center max-w-2xl">
             Explore my portfolio of projects that showcase my skills in web development, 

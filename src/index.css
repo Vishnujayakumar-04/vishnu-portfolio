@@ -20,7 +20,39 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #915EFF #151030;
+  scrollbar-color: #FFA500 #151030;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Smooth scroll animation enhancement */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fade-in animation for scroll-triggered elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
 *::-webkit-scrollbar {
@@ -32,7 +64,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #915EFF;
+  background: linear-gradient(180deg, #FFD700, #FFA500, #FF4500);
   border-radius: 10px;
 }
 
@@ -50,7 +82,7 @@ body {
 }
 
 .violet-gradient {
-  background: linear-gradient(90deg, #804dee, #c084fc);
+  background: linear-gradient(90deg, #FFD700, #FFA500, #FF4500);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -132,11 +164,11 @@ body {
   top: -150%;
   width: 200%;
   height: 400%;
-  background-color: #915EFF;
+  background-color: #FFA500;
   background-repeat: no-repeat;
   background-size: 50% 50%;
   background-position: 0 0;
-  background-image: conic-gradient(transparent, rgba(145, 94, 255, 0.5), transparent 30%);
+  background-image: conic-gradient(transparent, rgba(255, 215, 0, 0.5), rgba(255, 165, 0, 0.5), rgba(255, 69, 0, 0.5), transparent 30%);
   animation: rotate 4s linear infinite;
 }
 

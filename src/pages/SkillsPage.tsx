@@ -44,8 +44,8 @@ const SkillsPage = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center mb-16"
         >
-          <h1 className="text-4xl sm:text-5xl font-bold mb-8">
-            <span className="violet-gradient">My Skills</span>
+          <h1 className="text-4xl sm:text-5xl font-display font-bold mb-8">
+            <span className="bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">My Skills</span>
           </h1>
           <p className="text-text-secondary text-center max-w-2xl">
             I've developed expertise in various technologies and tools throughout my career.

@@ -23,10 +23,10 @@ const AnimatedButton = ({
 
   const buttonContent = (
     <motion.div
-      className={`relative button-glow overflow-hidden py-3 px-6 font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300 ${
+      className={`relative button-glow overflow-hidden py-2 sm:py-2.5 md:py-3 px-4 sm:px-5 md:px-6 text-xs sm:text-sm md:text-base font-medium rounded-full flex items-center justify-center gap-1.5 sm:gap-2 transition-all duration-300 ${
         isHovered ? 'bg-text-accent text-white' : 'bg-background-accent text-white'
       } ${className}`}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.95 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
