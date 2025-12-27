@@ -1,5 +1,6 @@
 import SectionWrapper from '../components/SectionWrapper';
 import ParticlesBackground from '../components/ParticlesBackground';
+import MinimalAnimatedBackground from '../components/MinimalAnimatedBackground';
 import TimelineSection, { TimelineItem } from '../components/TimelineSection';
 
 const EducationPage = () => {
@@ -19,7 +20,7 @@ const EducationPage = () => {
       description: "School of Arts and Science - CGPA - 7.90",
       location: "Puducherry",
       durationBadge: "2021-2024",
-      certificateLink: "/certificates/bca.pdf"
+      certificateLink: "/Assets/OVERALL MARKEET.pdf"
     },
     {
       title: "Vidya Bhavan Higher Secondary School",
@@ -41,6 +42,7 @@ const EducationPage = () => {
 
   return (
     <SectionWrapper>
+      <MinimalAnimatedBackground />
       <ParticlesBackground className="opacity-20" />
       <TimelineSection title="Education" items={educationData} />
     </SectionWrapper>

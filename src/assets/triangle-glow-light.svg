@@ -1,0 +1,54 @@
+<svg width="600" height="520" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Outer glow filter -->
+    <filter id="glow-light" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Inner glow filter -->
+    <filter id="innerGlow-light" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Neon glow gradient for light background -->
+    <linearGradient id="neonGradient-light" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF8C00;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer glow layer (blurred) -->
+  <path d="M 300 20 L 580 500 L 20 500 Z" 
+        fill="none" 
+        stroke="url(#neonGradient-light)" 
+        stroke-width="4" 
+        filter="url(#glow-light)" 
+        opacity="0.7"
+        class="triangle-outer-glow"/>
+  
+  <!-- Main triangle with glow stroke -->
+  <path d="M 300 20 L 580 500 L 20 500 Z" 
+        fill="none" 
+        stroke="url(#neonGradient-light)" 
+        stroke-width="3" 
+        filter="url(#innerGlow-light)"
+        class="triangle-main"/>
+  
+  <!-- Inner highlight -->
+  <path d="M 300 20 L 580 500 L 20 500 Z" 
+        fill="none" 
+        stroke="#FF8C00" 
+        stroke-width="1" 
+        opacity="0.9"
+        class="triangle-inner"/>
+</svg>
+

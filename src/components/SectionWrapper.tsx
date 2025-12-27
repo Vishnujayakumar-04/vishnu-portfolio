@@ -19,7 +19,7 @@ const SectionWrapper = ({ children, idName = '', className = '' }: SectionWrappe
       initial="hidden"
       animate="show"
       id={idName}
-      className={`relative w-full mx-auto max-w-7xl min-h-screen flex items-center ${className}`}
+      className={`relative w-full mx-auto max-w-7xl ${className.includes('min-h-0') ? '' : 'min-h-screen'} flex items-center ${className}`}
     >
       <span className="hash-span" id={idName}>
         &nbsp;

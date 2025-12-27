@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, ChevronUp, ExternalLink, Github } from 'lucide-react';
+import { ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 
 // Sample projects data - replace with your actual projects
 const projects = [

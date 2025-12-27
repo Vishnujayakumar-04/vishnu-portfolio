@@ -17,12 +17,12 @@ interface TimelineSectionProps {
 
 const TimelineSection = ({ title, items }: TimelineSectionProps) => {
   return (
-    <section className="container mx-auto px-2 sm:px-4 lg:px-6 py-20 sm:py-24">
-      <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-12 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">
+    <section className="container mx-auto px-2 sm:px-4 lg:px-6 py-12 sm:py-16">
+      <h2 className="text-4xl md:text-5xl font-display font-bold text-center mb-8 sm:mb-10 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">
         {title}
       </h2>
       <div className="w-full px-100 md:px-100 lg:px-100">
-        <div className="relative w-full pt-8">
+        <div className="relative w-full pt-4">
           {/* Timeline line - left side */}
           <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#FFD700] via-[#FFA500] to-[#FF4500]" />
 
@@ -32,14 +32,14 @@ const TimelineSection = ({ title, items }: TimelineSectionProps) => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.2 }}
-              className="relative mb-16 pl-12 pr-2 md:pr-4 lg:pr-8"
+              className="relative mb-10 sm:mb-12 pl-12 pr-2 md:pr-4 lg:pr-8"
             >
               {/* Timeline dot */}
               <div className="absolute left-0 top-6 ml-2.5 w-3 h-3 rounded-full bg-[#FF4500] border-2 border-[#FFD700] z-10" />
               
               {/* Card - all aligned to the right */}
-              <div className="bg-background-accent/10 rounded-xl p-6 backdrop-blur-sm border border-text-accent/10 hover:border-text-accent/30 hover:shadow-lg hover:shadow-[#FFA500]/10 hover:-translate-x-1 transition-all duration-300">
-                <div className="flex flex-col md:flex-row md:justify-between items-start gap-6">
+              <div className="bg-background-accent/10 rounded-xl p-4 sm:p-5 backdrop-blur-sm border border-text-accent/10 hover:border-text-accent/30 hover:shadow-lg hover:shadow-[#FFA500]/10 hover:-translate-x-1 transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:justify-between items-start gap-4 sm:gap-5">
                   <div className="md:flex-1">
                     <h3 className="text-2xl font-extrabold mb-2 tracking-wider text-text-primary">
                       {item.title}

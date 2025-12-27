@@ -4,11 +4,10 @@ import { motion, useAnimation } from 'framer-motion';
 interface AnimatedTextProps {
   text: string;
   className?: string;
-  once?: boolean;
   delayMultiplier?: number;
 }
 
-const AnimatedText = ({ text, className = '', once = true, delayMultiplier = 0.1 }: AnimatedTextProps) => {
+const AnimatedText = ({ text, className = '', delayMultiplier = 0.1 }: AnimatedTextProps) => {
   const controls = useAnimation();
   
   useEffect(() => {

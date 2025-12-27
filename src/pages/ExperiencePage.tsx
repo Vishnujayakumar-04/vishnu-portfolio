@@ -1,5 +1,6 @@
 import SectionWrapper from '../components/SectionWrapper';
 import ParticlesBackground from '../components/ParticlesBackground';
+import MinimalAnimatedBackground from '../components/MinimalAnimatedBackground';
 import TimelineSection, { TimelineItem } from '../components/TimelineSection';
 
 const ExperiencePage = () => {
@@ -26,6 +27,7 @@ const ExperiencePage = () => {
 
   return (
     <SectionWrapper>
+      <MinimalAnimatedBackground />
       <ParticlesBackground className="opacity-20" />
       <TimelineSection title="Experience" items={experienceData} />
     </SectionWrapper>

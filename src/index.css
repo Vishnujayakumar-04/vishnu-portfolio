@@ -201,3 +201,178 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* Glowing Yellow Triangle - Inspired by talaganarajesh.in */
+@keyframes triangleGlowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)) 
+            drop-shadow(0 0 20px rgba(255, 215, 0, 0.4))
+            drop-shadow(0 0 30px rgba(255, 215, 0, 0.2));
+    opacity: 0.85;
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)) 
+            drop-shadow(0 0 40px rgba(255, 215, 0, 0.7))
+            drop-shadow(0 0 60px rgba(255, 215, 0, 0.5))
+            drop-shadow(0 0 80px rgba(255, 215, 0, 0.3));
+    opacity: 1;
+  }
+}
+
+@keyframes triangleBreath {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+@keyframes triangleBlurGlow {
+  0%, 100% {
+    filter: blur(8px);
+    opacity: 0.4;
+  }
+  50% {
+    filter: blur(12px);
+    opacity: 0.7;
+  }
+}
+
+.glowing-triangle-container {
+  position: relative;
+  width: 600px;
+  height: 520px;
+  max-width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SVG Triangle Styles */
+.svg-triangle-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-triangle {
+  width: 100%;
+  height: 100%;
+  animation: svgTriangleGlowPulse 2.5s ease-in-out infinite, 
+             svgTriangleScaleBreath 2.5s ease-in-out infinite;
+}
+
+.svg-triangle .triangle-main {
+  animation: svgStrokePulse 2.5s ease-in-out infinite;
+}
+
+.svg-triangle .triangle-outer-glow {
+  animation: svgGlowBreath 2.5s ease-in-out infinite;
+}
+
+/* Main triangle outline using border trick - talaganarajesh.in style */
+.glowing-triangle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  /* Outer triangle - yellow border */
+  border-left: 300px solid transparent;
+  border-right: 300px solid transparent;
+  border-bottom: 400px solid #FFD700;
+  /* Scroll-based animation handled by Framer Motion */
+  z-index: 1;
+}
+
+/* Inner triangle to create outline effect (hollow center) */
+.glowing-triangle::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -296px;
+  width: 0;
+  height: 0;
+  border-left: 296px solid transparent;
+  border-right: 296px solid transparent;
+  border-bottom: 392px solid transparent;
+  border-bottom-color: #000000;
+  z-index: 2;
+}
+
+/* Outer blur glow layer for neon effect */
+.glowing-triangle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -300px;
+  width: 0;
+  height: 0;
+  border-left: 300px solid transparent;
+  border-right: 300px solid transparent;
+  border-bottom: 400px solid #FFD700;
+  filter: blur(10px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .glowing-triangle-container {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .glowing-triangle {
+    border-left-width: 150px;
+    border-right-width: 150px;
+    border-bottom-width: 200px;
+  }
+  
+  .glowing-triangle::before {
+    left: -146px;
+    border-left-width: 146px;
+    border-right-width: 146px;
+    border-bottom-width: 192px;
+  }
+  
+  .glowing-triangle::after {
+    left: -150px;
+    border-left-width: 150px;
+    border-right-width: 150px;
+    border-bottom-width: 200px;
+  }
+  
+}
+
+@media (max-width: 640px) {
+  .glowing-triangle-container {
+    height: 300px;
+  }
+  
+  .glowing-triangle {
+    border-left-width: 120px;
+    border-right-width: 120px;
+    border-bottom-width: 160px;
+  }
+  
+  .glowing-triangle::before {
+    left: -116px;
+    border-left-width: 116px;
+    border-right-width: 116px;
+    border-bottom-width: 152px;
+  }
+  
+  .glowing-triangle::after {
+    left: -120px;
+    border-left-width: 120px;
+    border-right-width: 120px;
+    border-bottom-width: 160px;
+  }
+}

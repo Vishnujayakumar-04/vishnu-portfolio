@@ -5,6 +5,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Loader from './components/Loader';
 import PageTransition from './components/PageTransition';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Pages
 import HomePage from './pages/HomePage';
@@ -17,6 +18,9 @@ import ContactPage from './pages/ContactPage';
 import ArticlesPage from './pages/ArticlesPage';
 import CodingProfilesPage from './pages/CodingProfilesPage';
 import ExperiencePage from './pages/ExperiencePage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
+import CertificatesPage from './pages/CertificatesPage';
+import InternshipPage from './pages/InternshipPage';
 
 function App() {
   const location = useLocation();
@@ -38,11 +42,12 @@ function App() {
   }
 
   return (
-    <div className="relative z-0 bg-background-primary">
-      <Navbar />
-      
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
+    <ErrorBoundary>
+      <div className="relative z-0 bg-background-primary">
+        <Navbar />
+        
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
           <Route 
             path="/" 
             element={
@@ -66,6 +71,14 @@ function App() {
                 <ProjectsPage />
               </Suspense>
             } 
+          />
+          <Route
+            path="/projects/:projectId"
+            element={
+              <Suspense fallback={<PageTransition />}>
+                <ProjectDetailPage />
+              </Suspense>
+            }
           />
           <Route 
             path="/experience" 
@@ -123,9 +136,26 @@ function App() {
               </Suspense>
             } 
           />
-        </Routes>
-      </AnimatePresence>
-    </div>
+          <Route 
+            path="/certificates" 
+            element={
+              <Suspense fallback={<PageTransition />}>
+                <CertificatesPage />
+              </Suspense>
+            } 
+          />
+          <Route 
+            path="/internship" 
+            element={
+              <Suspense fallback={<PageTransition />}>
+                <InternshipPage />
+              </Suspense>
+            } 
+          />
+          </Routes>
+        </AnimatePresence>
+      </div>
+    </ErrorBoundary>
   );
 }
 

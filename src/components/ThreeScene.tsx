@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Float, Decal, useTexture } from '@react-three/drei';
-import { motion } from 'framer-motion';
 import { Group } from 'three';
 
 interface BallProps {
@@ -55,7 +54,7 @@ interface ThreeSceneProps {
 }
 
 const ThreeScene = ({ icons }: ThreeSceneProps) => {
-  const [activeIcon, setActiveIcon] = useState(0);
+  const [activeIcon] = useState(0);
   
   return (
     <Canvas 
