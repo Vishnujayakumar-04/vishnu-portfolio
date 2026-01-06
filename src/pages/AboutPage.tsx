@@ -147,7 +147,7 @@ const AboutPage = () => {
           <div className="w-full max-w-xs sm:max-w-sm animated-border-box p-3 sm:p-4 rounded-xl hover:shadow-lg hover:shadow-[#FFA500]/20 transition-all duration-300">
             <div className="rounded-xl overflow-hidden mb-3 sm:mb-4">
               <motion.img
-                src="/Assets/Profile.jpg"
+                src="/assets/Profile.jpg"
                 alt="Vishnu J"
                 className="w-full h-auto rounded-xl max-h-80 object-cover"
                 initial={{ scale: 1.1, filter: 'blur(8px)' }}

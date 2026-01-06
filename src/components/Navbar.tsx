@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import resumePdf from '../../Assets/Vishnu Resume.pdf';
+import resumePdf from '../../assets/Vishnu Resume.pdf';
 
 const navLinks = [
   { name: 'About', path: '/about' },
@@ -51,9 +51,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'py-4 bg-background-primary/80 backdrop-blur-lg' : 'py-6'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 bg-background-primary/80 backdrop-blur-lg' : 'py-6'
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -62,7 +61,7 @@ const Navbar = () => {
             <span className="font-dancing text-3xl sm:text-4xl bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text hover:scale-105 transition-transform inline-block">
               Vishnu J
             </span>
-        </Link>
+          </Link>
 
           {/* Center - Navigation */}
           <div className="hidden lg:flex items-center justify-center flex-1 px-8">
@@ -70,11 +69,10 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`px-4 text-sm font-display font-semibold tracking-wide transition-colors ${
-                  active === link.name
+                className={`px-4 text-sm font-display font-semibold tracking-wide transition-colors ${active === link.name
                     ? 'text-[#FFD700]'
                     : 'text-text-secondary hover:text-text-primary'
-                }`}
+                  }`}
                 onClick={(e) => {
                   handleNavClick(e, link.path);
                   setActive(link.name);
@@ -82,7 +80,7 @@ const Navbar = () => {
               >
                 {link.name}
               </Link>
-          ))}
+            ))}
           </div>
 
           {/* Right - Resume Button */}
@@ -99,40 +97,39 @@ const Navbar = () => {
           <button
             className="lg:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
-            >
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          </div>
+        </div>
 
         {/* Mobile Navigation */}
-          <motion.div
+        <motion.div
           initial={false}
-            animate={{
+          animate={{
             height: isOpen ? 'auto' : 0,
             opacity: isOpen ? 1 : 0
-            }}
-            transition={{ duration: 0.2 }}
+          }}
+          transition={{ duration: 0.2 }}
           className="lg:hidden overflow-hidden"
-          >
+        >
           <div className="py-4 space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`block text-sm font-display font-semibold tracking-wide transition-colors ${
-                  active === link.name
+                className={`block text-sm font-display font-semibold tracking-wide transition-colors ${active === link.name
                     ? 'text-[#FFD700]'
                     : 'text-text-secondary hover:text-text-primary'
                   }`}
-                  onClick={(e) => {
+                onClick={(e) => {
                   handleNavClick(e, link.path);
                   setActive(link.name);
                   setIsOpen(false);
-                  }}
-                >
+                }}
+              >
                 {link.name}
-                  </Link>
-              ))}
+              </Link>
+            ))}
             <a
               href={resumePdf}
               target="_blank"
@@ -142,7 +139,7 @@ const Navbar = () => {
               Resume
             </a>
           </div>
-          </motion.div>
+        </motion.div>
       </div>
     </nav>
   );

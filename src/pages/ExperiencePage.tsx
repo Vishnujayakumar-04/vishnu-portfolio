@@ -13,7 +13,7 @@ const ExperiencePage = () => {
       location: "Pakkamudayanpet, Annamalai Nagar, Puducherry",
       durationBadge: "Fifteen Days Internship",
       dateRange: "11 - 28 November 2022",
-      certificateLink: "/Assets/Integra Intern Certificate.jpg"
+      certificateLink: "/assets/Integra Intern Certificate.jpg"
     },
     {
       title: "Luca Digital Solution",

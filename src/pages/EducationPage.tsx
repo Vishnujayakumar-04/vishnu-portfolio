@@ -20,7 +20,7 @@ const EducationPage = () => {
       description: "School of Arts and Science - CGPA - 7.90",
       location: "Puducherry",
       durationBadge: "2021-2024",
-      certificateLink: "/Assets/OVERALL MARKEET.pdf"
+      certificateLink: "/assets/OVERALL MARKEET.pdf"
     },
     {
       title: "Vidya Bhavan Higher Secondary School",
@@ -28,7 +28,7 @@ const EducationPage = () => {
       description: "Puducherry - 67.8%",
       location: "Puducherry",
       durationBadge: "2020-2021",
-      certificateLink: "/Assets/12th (1).pdf"
+      certificateLink: "/assets/12th (1).pdf"
     },
     {
       title: "Petit Seminaire Higher Secondary School",
@@ -36,7 +36,7 @@ const EducationPage = () => {
       description: "Puducherry - 49.6%",
       location: "Puducherry",
       durationBadge: "2018-2019",
-      certificateLink: "/Assets/10th marksheet.pdf"
+      certificateLink: "/assets/10th marksheet.pdf"
     }
   ];
 

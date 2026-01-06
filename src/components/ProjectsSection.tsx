@@ -7,9 +7,9 @@ const projects = [
   {
     title: "Online Bookstore",
     description: "A modern, responsive online bookstore web application for Pondicherry University. Features user authentication, book catalogue with search and filter, shopping cart, checkout system with multiple payment methods, and invoice generation. Built with vanilla JavaScript, HTML5, and CSS3 using localStorage for data persistence.",
-    image: "/Projects/Online Bookstore/PULOGO.png",
+    image: "/projects/Online Bookstore/PULOGO.png",
     tags: ["HTML5", "CSS3", "JavaScript", "localStorage", "Web Development"],
-    demoLink: "/Projects/Online Bookstore/index.html",
+    demoLink: "/projects/Online Bookstore/index.html",
   },
   {
     title: "Wedding Film Editing",
@@ -90,7 +90,7 @@ const ProjectsSection = () => {
   return (
     <section className="py-20 bg-background-primary relative">
       {/* Title */}
-      <motion.h2 
+      <motion.h2
         className="text-4xl md:text-5xl font-display font-bold text-center mb-16 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

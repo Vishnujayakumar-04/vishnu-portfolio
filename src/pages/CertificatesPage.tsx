@@ -8,27 +8,27 @@ import MinimalAnimatedBackground from '../components/MinimalAnimatedBackground';
 const certificates = [
   {
     title: "Train to Transformed Data Scientist",
-    imgSrc: "/Assets/IMG_20250823_214143.jpg",
+    imgSrc: "/assets/IMG_20250823_214143.jpg",
     description: "Train to Transformed Data Scientist Certificate."
   },
   {
     title: "NXT WAVE",
-    imgSrc: "/Assets/Certificate.png",
+    imgSrc: "/assets/Certificate.png",
     description: "NXT Wave AI Workshop Certificate."
   },
   {
     title: "The Joy of Computing Using Python – NPTEL",
-    imgSrc: "/Assets/THE JOY OF COMPUTING USING PYTHON.png",
+    imgSrc: "/assets/THE JOY OF COMPUTING USING PYTHON.png",
     description: "NPTEL online course certificate for 'The Joy of Computing Using Python'."
   },
   {
     title: "ICT Academy Certificate",
-    imgSrc: "/Assets/ICT ACADEMIY CERTIFICATE.png",
+    imgSrc: "/assets/ICT ACADEMIY CERTIFICATE.png",
     description: "ICT Academy Certificate of completion."
   },
   {
     title: "Udemy Certificate",
-    imgSrc: "/Assets/Udemy Certificate.jpg",
+    imgSrc: "/assets/Udemy Certificate.jpg",
     description: "Udemy online course certificate."
   }
 ];
@@ -38,7 +38,7 @@ const CertificatesPage = () => {
     <SectionWrapper className="min-h-0 flex-col justify-start py-8">
       <MinimalAnimatedBackground />
       <ParticlesBackground className="opacity-20" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -52,17 +52,17 @@ const CertificatesPage = () => {
             </span>
           </h1>
           <p className="text-text-secondary text-center max-w-2xl text-xs sm:text-sm md:text-base px-4 line-clamp-2">
-            A collection of my professional certifications, course completions, and achievements 
+            A collection of my professional certifications, course completions, and achievements
             that showcase my continuous learning and expertise in various technologies.
           </p>
         </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col gap-6 sm:gap-8 items-center w-full"
-            >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-col gap-6 sm:gap-8 items-center w-full"
+        >
           {/* First Row - 3 Certificates */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12 justify-items-center items-start w-full max-w-7xl mx-auto">
             {certificates.slice(0, 3).map((certificate, index) => (

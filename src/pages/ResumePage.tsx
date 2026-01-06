@@ -3,14 +3,14 @@ import SectionWrapper from '../components/SectionWrapper';
 import ParticlesBackground from '../components/ParticlesBackground';
 import AnimatedButton from '../components/AnimatedButton';
 import MarksheetItem from '../components/MarksheetItem';
-import resumePdf from '../../Assets/Vishnu Resume.pdf';
+import resumePdf from '../../assets/Vishnu Resume.pdf';
 import { FileDown, Briefcase, GraduationCap, Award } from 'lucide-react';
 
 const ResumePage = () => {
   return (
     <SectionWrapper>
       <ParticlesBackground className="opacity-20" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -25,7 +25,7 @@ const ResumePage = () => {
             Here's a summary of my professional experience, education, and achievements.
             You can download my full resume for more details.
           </p>
-          
+
           <AnimatedButton
             text="Download Resume"
             icon={<FileDown size={18} />}
@@ -34,7 +34,7 @@ const ResumePage = () => {
             className="mb-12"
           />
         </motion.div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -45,10 +45,10 @@ const ResumePage = () => {
               <Briefcase size={28} className="text-text-accent" />
               <h2 className="text-3xl font-display font-bold bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">Work Experience</h2>
             </div>
-            
+
             <div className="space-y-8 relative">
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-text-accent/30" />
-              
+
               {[
                 {
                   title: "Senior Frontend Developer",
@@ -79,7 +79,7 @@ const ResumePage = () => {
                   <div className="absolute left-0 top-2 w-8 h-8 rounded-full bg-background-accent border-2 border-text-accent flex items-center justify-center">
                     <div className="w-3 h-3 rounded-full bg-text-accent" />
                   </div>
-                  
+
                   <div className="glassmorphism p-6 rounded-xl">
                     <h3 className="text-xl font-semibold text-text-primary">{exp.title}</h3>
                     <div className="flex justify-between items-center mb-3">
@@ -92,7 +92,7 @@ const ResumePage = () => {
               ))}
             </div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -102,7 +102,7 @@ const ResumePage = () => {
               <GraduationCap size={28} className="text-text-accent" />
               <h2 className="text-3xl font-display font-bold bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">Education</h2>
             </div>
-            
+
             <div className="space-y-8 relative">
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-text-accent/30" />
               {[
@@ -120,37 +120,37 @@ const ResumePage = () => {
                   marksheets: [
                     {
                       title: '1st Semester Marksheet',
-                      pdfUrl: "/Assets/Ist-Semester Marksheet.pdf"
+                      pdfUrl: "/assets/Ist-Semester Marksheet.pdf"
                     },
                     {
                       title: '2nd Semester Marksheet',
-                      pdfUrl: "/Assets/IIst-Semester Marksheet.pdf"
+                      pdfUrl: "/assets/IIst-Semester Marksheet.pdf"
                     },
                     {
                       title: '3rd Semester Marksheet',
-                      pdfUrl: "/Assets/IIIst-Semester Marksheet.pdf"
+                      pdfUrl: "/assets/IIIst-Semester Marksheet.pdf"
                     },
                     {
                       title: '4th Semester Marksheet',
-                      pdfUrl: "/Assets/IVst-Semester Marksheet.pdf"
+                      pdfUrl: "/assets/IVst-Semester Marksheet.pdf"
                     },
                     {
                       title: '5th Semester Marksheet',
-                      pdfUrl: "/Assets/Vst-Semester Marksheet.pdf"
+                      pdfUrl: "/assets/Vst-Semester Marksheet.pdf"
                     },
                     {
                       title: 'Overall Marksheet',
-                      pdfUrl: "/Assets/OVERALL MARKEET.pdf"
+                      pdfUrl: "/assets/OVERALL MARKEET.pdf"
                     }
                   ],
                   schoolMarks: [
                     {
                       title: 'SSLC Marksheet',
-                      pdfUrl: "/Assets/10th marksheet.pdf"
+                      pdfUrl: "/assets/10th marksheet.pdf"
                     },
                     {
                       title: 'HSC Marksheet',
-                      pdfUrl: "/Assets/12th (1).pdf"
+                      pdfUrl: "/assets/12th (1).pdf"
                     }
                   ]
                 },
@@ -177,7 +177,7 @@ const ResumePage = () => {
                   <div className="absolute left-0 top-2 w-8 h-8 rounded-full bg-background-accent border-2 border-text-accent flex items-center justify-center">
                     <div className="w-3 h-3 rounded-full bg-text-accent" />
                   </div>
-                  
+
                   <div className="glassmorphism p-6 rounded-xl">
                     <h3 className="text-xl font-semibold text-text-primary">{edu.degree}</h3>
                     <div className="flex justify-between items-center mb-3">
@@ -201,12 +201,12 @@ const ResumePage = () => {
                 </motion.div>
               ))}
             </div>
-            
+
             <div className="flex items-center gap-4 mb-8">
               <Award size={28} className="text-text-accent" />
               <h2 className="text-3xl font-display font-bold bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">Certifications</h2>
             </div>
-            
+
             <div className="space-y-4">
               {[
                 "AWS Certified Developer Associate",

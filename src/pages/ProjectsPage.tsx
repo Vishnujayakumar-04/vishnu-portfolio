@@ -32,7 +32,7 @@ const projects = [
       { name: "TypeScript", color: "violet-gradient" },
     ],
     status: "In Progress • 65%",
-    img: "/Projects/pudocs.png",
+    img: "/projects/pudocs.png",
     summary: "Centralized mobile app for students, staff & office with timetable, notices and admin controls.",
     tech: ["React Native", "Expo", "TypeScript", "Firebase", "Firestore", "Reanimated"],
     github: "https://github.com/Vishnujayakumar-04/PUDoCS",
@@ -70,7 +70,7 @@ const ProjectsPage = () => {
     <SectionWrapper>
       <MinimalAnimatedBackground />
       <ParticlesBackground className="opacity-15" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 flex flex-col">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -86,7 +86,7 @@ const ProjectsPage = () => {
             and smart systems, focused on clean UI, performance, and real-world problem solving.
           </p>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

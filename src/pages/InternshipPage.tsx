@@ -12,7 +12,7 @@ const InternshipPage = () => {
       location: "Thiruvalluvar Salai, Iyyanar Nagar, Pudupalaiyam, Puducherry",
       durationBadge: "One Month Internship",
       dateRange: "7 - 30 June 2023",
-      certificateLink: "/Assets/Image Creative.jpg"
+      certificateLink: "/assets/Image Creative.jpg"
     },
     {
       title: "Integra Software Solution",
@@ -21,7 +21,7 @@ const InternshipPage = () => {
       location: "Pakkamudayanpet, Annamalai Nagar, Puducherry",
       durationBadge: "Fifteen Days Internship",
       dateRange: "11 - 28 November 2022",
-      certificateLink: "/Assets/Integra Intern Certificate.jpg"
+      certificateLink: "/assets/Integra Intern Certificate.jpg"
     }
   ];
 
