@@ -25,7 +25,7 @@ const iconUrls: Record<string, string> = {
   'Figma': 'https://www.shutterstock.com/image-vector/figma-mobile-app-icon-on-260nw-2622289095.jpg',
   'Firebase': 'https://img.icons8.com/color/512/firebase.png',
   'REST API': 'https://miro.medium.com/1*106km8msNjMje898Y6H7ww.png',
-  'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+
 };
 
 const techStack = [
@@ -50,7 +50,6 @@ const techStack = [
   { name: 'Figma' },
   { name: 'Firebase' },
   { name: 'REST API' },
-  { name: 'Python' },
 ];
 
 const containerVariants = {
@@ -182,7 +181,7 @@ const TechStackSection = () => {
                           'figma': 'https://www.shutterstock.com/image-vector/figma-mobile-app-icon-on-260nw-2622289095.jpg',
                           'firebase': 'https://img.icons8.com/color/512/firebase.png',
                           'restapi': 'https://miro.medium.com/1*106km8msNjMje898Y6H7ww.png',
-                          'python': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg',
+
                         };
                         
                         const altUrl = alternatives[techName];

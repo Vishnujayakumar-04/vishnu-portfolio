@@ -71,7 +71,7 @@ const projectDetails: Record<string, ProjectDetail> = {
       },
     ],
     techStack:
-      'Desktop-based UI (e.g., Java / .NET / Python GUI), relational database (MySQL / SQL Server), and report generation tools for invoices and summaries.',
+      'Desktop-based UI (e.g., Java / .NET GUI), relational database (MySQL / SQL Server), and report generation tools for invoices and summaries.',
     outcome:
       'Provides a fast cashier workflow and clear reporting for small and medium supermarkets, reducing manual errors and improving checkout speed.',
   },

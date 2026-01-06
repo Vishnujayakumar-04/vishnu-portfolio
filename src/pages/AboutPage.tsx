@@ -26,7 +26,7 @@ const iconUrls: Record<string, string> = {
   'Figma': 'https://www.shutterstock.com/image-vector/figma-mobile-app-icon-on-260nw-2622289095.jpg',
   'Firebase': 'https://img.icons8.com/color/512/firebase.png',
   'REST API': 'https://miro.medium.com/1*106km8msNjMje898Y6H7ww.png',
-  'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+
 };
 
 const techStack = [
@@ -51,7 +51,6 @@ const techStack = [
   { name: 'Figma' },
   { name: 'Firebase' },
   { name: 'REST API' },
-  { name: 'Python' },
 ];
 
 // Convert to array format for rendering
@@ -65,7 +64,7 @@ const AboutPage = () => {
     <SectionWrapper>
       <MinimalAnimatedBackground />
       <ParticlesBackground className="opacity-20" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -76,7 +75,7 @@ const AboutPage = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-3 sm:mb-4 text-center md:text-left w-full">
             <span className="bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-transparent bg-clip-text">About Me</span>
           </h1>
-          
+
           <div className="space-y-2 sm:space-y-3 text-text-secondary w-full">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -119,7 +118,7 @@ const AboutPage = () => {
 
               <div>
                 <h4 className="text-xs sm:text-sm md:text-base font-display font-semibold text-text-primary mb-1">Programming Languages:</h4>
-                <p className="text-xs sm:text-sm md:text-base">Java, Python</p>
+                <p className="text-xs sm:text-sm md:text-base">Java</p>
               </div>
 
               <div>
@@ -138,7 +137,7 @@ const AboutPage = () => {
             </motion.p>
           </div>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -156,7 +155,7 @@ const AboutPage = () => {
                 transition={{ duration: 0.8 }}
               />
             </div>
-            
+
             <h3 className="text-lg sm:text-xl font-display font-semibold text-text-primary mb-2 sm:mb-3 text-center">
               Tech I Work With
             </h3>
