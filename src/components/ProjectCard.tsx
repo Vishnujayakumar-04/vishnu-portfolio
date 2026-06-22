@@ -1,89 +1,83 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
+import type { Project } from '../data/projects';
 
 interface ProjectCardProps {
-  name: string;
-  description: string;
-  tags: Array<{ name: string; color: string }>;
-  image: string;
-  source_code_link?: string;
-  demo_link?: string;
+  project: Project;
   index: number;
 }
 
-const ProjectCard = ({
-  name,
-  description,
-  tags,
-  image,
-  source_code_link,
-  demo_link,
-  index,
-}: ProjectCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="group relative rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-[#FFA500]/30 transition-all duration-500 overflow-hidden"
     >
-      <div
-        className="bg-background-accent p-5 rounded-2xl animated-border-box sm:w-[360px] w-full h-full"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="relative w-full h-[230px] overflow-hidden rounded-lg">
-          <motion.img
-            src={image}
-            alt={name}
-            className="w-full h-full object-cover"
-            initial={{ scale: 1 }}
-            animate={{ scale: isHovered ? 1.05 : 1 }}
-            transition={{ duration: 0.4 }}
-          />
+      {/* Subtle gradient accent */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FFA500]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          <motion.div
-            className="absolute inset-0 flex justify-end m-3 gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {source_code_link && (
-              <div
-                onClick={() => window.open(source_code_link, "_blank")}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-              >
-                <Github className="w-5 h-5 text-white" />
-              </div>
-            )}
-            
-            {demo_link && (
-              <div
-                onClick={() => window.open(demo_link, "_blank")}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-              >
-                <ExternalLink className="w-5 h-5 text-white" />
-              </div>
-            )}
-          </motion.div>
+      <div className="p-6 sm:p-8 flex flex-col h-full">
+        {/* Category + Status */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-gray-500">
+            {project.category}
+          </span>
+          {project.status && (
+            <span className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              {project.status}
+            </span>
+          )}
         </div>
 
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-text-secondary text-[14px]">{description}</p>
-        </div>
+        {/* Title */}
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[#FFD700] transition-colors duration-300">
+          {project.title}
+        </h3>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
+        {/* Description */}
+        <p className="text-gray-400 text-sm sm:text-[15px] leading-relaxed mb-6 flex-1">
+          {project.description}
+        </p>
+
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white/[0.04] text-gray-400 border border-white/[0.06]"
             >
-              #{tag.name}
-            </p>
+              {t}
+            </span>
           ))}
+        </div>
+
+        {/* Links */}
+        <div className="flex items-center gap-3 mt-auto">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-gray-400 border border-white/[0.08] hover:border-[#FFD700]/40 hover:text-[#FFD700] transition-all duration-300"
+            >
+              <Github className="w-4 h-4" />
+              Code
+            </a>
+          )}
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-black hover:opacity-90 transition-opacity"
+            >
+              <ExternalLink className="w-4 h-4" />
+              Live Demo
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
