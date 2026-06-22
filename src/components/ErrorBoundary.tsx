@@ -48,20 +48,20 @@ class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <div className="min-h-screen flex items-center justify-center bg-background-primary p-4">
-          <div className="max-w-2xl w-full bg-background-secondary/80 backdrop-blur-sm border border-text-accent/20 rounded-xl p-8 text-center">
-            <h1 className="text-3xl font-bold text-text-primary mb-4">
+        <div className="min-h-screen flex items-center justify-center bg-[#050816] p-4">
+          <div className="max-w-2xl w-full bg-[#0a0a1a]/80 backdrop-blur-sm border border-[#FFA500]/20 rounded-xl p-8 text-center">
+            <h1 className="text-3xl font-bold text-white mb-4">
               Something went wrong
             </h1>
-            <p className="text-text-secondary mb-6">
+            <p className="text-gray-400 mb-6">
               An error occurred while loading the page. Please try reloading.
             </p>
             {this.state.error && (
-              <details className="text-left mb-6 bg-background-primary/50 p-4 rounded-lg">
-                <summary className="cursor-pointer text-text-accent mb-2 font-semibold">
+              <details className="text-left mb-6 bg-[#050816]/50 p-4 rounded-lg">
+                <summary className="cursor-pointer text-[#FFA500] mb-2 font-semibold">
                   Error Details
                 </summary>
-                <pre className="text-xs text-text-secondary overflow-auto">
+                <pre className="text-xs text-gray-400 overflow-auto">
                   {this.state.error.toString()}
                   {this.state.errorInfo?.componentStack}
                 </pre>
@@ -69,7 +69,7 @@ class ErrorBoundary extends Component<Props, State> {
             )}
             <button
               onClick={this.handleReload}
-              className="px-6 py-3 bg-text-accent text-background-primary rounded-full font-semibold hover:opacity-90 transition-opacity"
+              className="px-6 py-3 bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF4500] text-black rounded-full font-semibold hover:opacity-90 transition-opacity"
             >
               Reload Page
             </button>
